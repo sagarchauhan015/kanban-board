@@ -11,9 +11,10 @@ function App() {
   const userList = ['Anoop sharma', 'Yogesh', 'Shankar Kumar', 'Ramesh', 'Suresh']
   const priorityList = [{name:'No priority', priority: 0}, {name:'Low', priority: 1}, {name:'Medium', priority: 2}, {name:'High', priority: 3}, {name:'Urgent', priority: 4}]
 
-  const [groupValue, setgroupValue] = useState('status')
+  const [groupValue, setgroupValue] = useState(getStateFromLocalStorage() || 'status')
   const [orderValue, setorderValue] = useState('title')
   const [ticketDetails, setticketDetails] = useState([]);
+
 
   const orderDataByValue = useCallback(async (cardsArry) => {
     if (orderValue === 'priority') {
@@ -35,7 +36,20 @@ function App() {
     await setticketDetails(cardsArry);
   }, [orderValue, setticketDetails]);
 
+  function saveStateToLocalStorage(state) {
+    localStorage.setItem('groupValue', JSON.stringify(state));
+  }
+
+  function getStateFromLocalStorage() {
+    const storedState = localStorage.getItem('groupValue');
+    if (storedState) {
+      return JSON.parse(storedState);
+    }
+    return null; 
+  }
+
   useEffect(() => {
+    saveStateToLocalStorage(groupValue);
     async function fetchData() {
       const response = await axios.get('https://api.quicksell.co/v1/internal/frontend-assignment');
       await refactorData(response);
@@ -58,7 +72,7 @@ function App() {
       orderDataByValue(ticketArray)
     }
     
-  }, [orderDataByValue])
+  }, [orderDataByValue, groupValue])
 
   function handleGroupValue(value){
     setgroupValue(value);
