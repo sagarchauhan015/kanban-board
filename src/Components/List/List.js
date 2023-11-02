@@ -1,9 +1,62 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import './List.css'
 import Card from '../Card/Card'
 
-export default function List() {
+export default function List(props) {
+    // const [cardsArry, setcardsArry] = useState([])
+    // const [isRunFunction, setisRunFunction] = useState(true)
+
+    // function orderDataByValue(){
+    //     props.ticketDetails.map(ticket => {
+    //         if(ticket.status === props.listTitle){
+    //             setcardsArry((prevState) => {
+    //                 return [...prevState, ticket]
+    //             })
+    //         }
+    //         else if(ticket.priority === props.listTitle){
+    //             setcardsArry((prevState) => {
+    //                 return [...prevState, ticket]
+    //             })
+    //         }
+    //         else if(ticket.userObj.name === props.listTitle){
+    //             setcardsArry((prevState) => {
+    //                 return [...prevState, ticket]
+    //             })
+    //         }
+    //     })
+
+    //     console.log('this is card array',cardsArry);
+
+    //     if(props.orderValue === 'priority'){
+    //         cardsArry.sort((a, b) => {
+    //             return a.priority - b.priority;
+    //         });
+    //     }
+    //     else if(props.orderValue === 'title'){
+    //         cardsArry.sort((a, b) => {
+
+    //             const nameA = a.title.toLowerCase();
+    //             const nameB = b.title.toLowerCase();
+              
+    //             if (nameA < nameB) {
+    //               return -1;
+    //             } else if (nameA > nameB) {
+    //               return 1;
+    //             } else {
+    //               return 0;
+    //             }
+    //         });
+    //     }
+
+    // }
+
+    // if(isRunFunction){
+    //     orderDataByValue()
+    //     setisRunFunction(false)
+    // }
+
+    
   return (
     <>
         <div className="list-container">
@@ -13,7 +66,21 @@ export default function List() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path fill="#fdc000" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8V4Z"/></g></svg>
                     </div>
                     <div className="list-title">
-                        In Progress
+                        {props.listTitle}
+                        {/* {
+                            {
+                                'priority' : <>{
+                                    props.priorityList.map(priorityProperty => {
+                                        if(priorityProperty.priority === props.listTitle){
+                                            return(<>{priorityProperty.name}</>)
+                                        }
+                                    })
+                                }</>,
+                                'other' : <>{
+                                    props.listTitle
+                                }</>
+                            }[props.listValue]
+                        } */}
                     </div>
                     <div className="list-sum">3</div>
                 </div>
@@ -28,7 +95,25 @@ export default function List() {
             </div>
 
             <div className="list-card-items">
-                <Card />
+                {
+                    props.ticketDetails.map(ticket => {
+                        if(ticket.status === props.listTitle){
+                            return(<Card cardDetails={ticket} />)
+                        }
+                        else if(ticket.priority === props.listTitle){
+                            return(<Card cardDetails={ticket} />)
+                        }
+                        else if(ticket.userObj.name === props.listTitle){
+                            return(<Card cardDetails={ticket} />)
+                        }
+                    })
+
+                    // cardsArry.map((ticket) => {
+                    //     return(
+                    //         <Card cardDetails={ticket} />
+                    //     )
+                    // })
+                }
             </div>
 
         </div>

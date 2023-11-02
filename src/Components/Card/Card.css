@@ -5,6 +5,7 @@
     border: 1px solid #ccc;
     box-shadow: 0px 2px 8px 1px #ccc;
     background-color: var(--white1);
+    margin-bottom: 1rem;
     cursor: pointer;
 }
 .card-id-wrapper{
@@ -29,10 +30,12 @@
     font-size: .8rem;
     position: relative;
 }
-.card-profile-initial::after{
-    content: "";
-    height: 8px;
-    width: 8px;
+.card-profile-initial{
+    text-transform: uppercase;
+}
+.card-profile-initial-available{
+    height: 12px;
+    width: 12px;
     background-color: var(--grey1);
     border: 1.5px solid var(--white1);
     position: absolute;
@@ -40,6 +43,9 @@
     border-radius: 50%;
     left: 70%;
     top: 70%;
+}
+.card-profile-initial-available-true{
+    background-color: rgb(139, 223, 12);
 }
 .card-title{
     font-size: 1rem;

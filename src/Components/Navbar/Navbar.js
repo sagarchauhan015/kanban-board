@@ -4,12 +4,22 @@ import downIcon from '../../Assets/Images/Down.svg'
 
 import './Navbar.css'
 
-export default function Navbar() {
+export default function Navbar(props) {
     const [toggleFilter, settoggleFilter] = useState(false);
 
-    function handleDisplayToggle(){
+    function handleDisplayToggle(e){
         settoggleFilter(!toggleFilter);
+        if(e.target.value !== undefined){
+            props.handleGroupValue(e.target.value);
+        }
     }
+    function handleOrderingValue(e){
+        settoggleFilter(!toggleFilter);
+        if(e.target.value !== undefined){
+            props.handleOrderValue(e.target.value);
+        }
+    }
+    
   return (
     <>
         <section className="nav">
@@ -32,7 +42,7 @@ export default function Navbar() {
                                 Grouping
                             </div>
                             <div className="nav-dropdown-selector">
-                                <select onChange={handleDisplayToggle} className='nav-selector' name="grouping" id="">
+                                <select value={props.groupValue} onChange={handleDisplayToggle} className='nav-selector' name="grouping" id="">
                                     <option value="status">Status</option>
                                     <option value="user">User</option>
                                     <option value="priority">Priority</option>
@@ -44,7 +54,7 @@ export default function Navbar() {
                                 Ordering
                             </div>
                             <div className="nav-dropdown-selector">
-                                <select className='nav-selector' name="grouping" id="">
+                                <select value={props.orderValue} onChange={handleOrderingValue} className='nav-selector' name="grouping" id="">
                                     <option value="priority">Priority</option>
                                     <option value="title">Title</option>
                                 </select>
