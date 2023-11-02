@@ -1,62 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import './List.css'
 import Card from '../Card/Card'
 
 export default function List(props) {
-    // const [cardsArry, setcardsArry] = useState([])
-    // const [isRunFunction, setisRunFunction] = useState(true)
-
-    // function orderDataByValue(){
-    //     props.ticketDetails.map(ticket => {
-    //         if(ticket.status === props.listTitle){
-    //             setcardsArry((prevState) => {
-    //                 return [...prevState, ticket]
-    //             })
-    //         }
-    //         else if(ticket.priority === props.listTitle){
-    //             setcardsArry((prevState) => {
-    //                 return [...prevState, ticket]
-    //             })
-    //         }
-    //         else if(ticket.userObj.name === props.listTitle){
-    //             setcardsArry((prevState) => {
-    //                 return [...prevState, ticket]
-    //             })
-    //         }
-    //     })
-
-    //     console.log('this is card array',cardsArry);
-
-    //     if(props.orderValue === 'priority'){
-    //         cardsArry.sort((a, b) => {
-    //             return a.priority - b.priority;
-    //         });
-    //     }
-    //     else if(props.orderValue === 'title'){
-    //         cardsArry.sort((a, b) => {
-
-    //             const nameA = a.title.toLowerCase();
-    //             const nameB = b.title.toLowerCase();
-              
-    //             if (nameA < nameB) {
-    //               return -1;
-    //             } else if (nameA > nameB) {
-    //               return 1;
-    //             } else {
-    //               return 0;
-    //             }
-    //         });
-    //     }
-
-    // }
-
-    // if(isRunFunction){
-    //     orderDataByValue()
-    //     setisRunFunction(false)
-    // }
-
-    
   return (
     <>
         <div className="list-container">
