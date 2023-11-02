@@ -1,15 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root{
   --white1: #ffffff;
   --black1: #000000;
 
-  --textgrey: #6B6F75;
+  --textgrey: #808184;
 
   --grey1: #dfe4e9;
-  --grey2: #e4e5e8;
+  --grey2: #f4f5f8;
   --grey3: #F8F8FA;
 
 }
 .board-details{
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 68px);
   background-color: var(--grey2);
+  overflow-x: scroll;
+}
+.board-details-list{
+  width: fit-content;
+  display: flex;
 }
