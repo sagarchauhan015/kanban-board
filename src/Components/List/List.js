@@ -11,6 +11,11 @@ export default function List(props) {
         <div className="list-container">
             <div className="list-header">
                 <div className="list-header-left">
+                    {
+                        {
+                            
+                        }
+                    }
                     <div className="list-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path fill="#fdc000" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8V4Z"/></g></svg>
                     </div>
@@ -18,12 +23,14 @@ export default function List(props) {
                         {
                             {
                                 'priority' : <>{
-                                    props.priorityList?.map(priorityProperty => {
-                                        if(priorityProperty.priority === props.listTitle){
-                                            return(<>{priorityProperty.name}</>)
-                                        }
-                                    })
-                                }</>,
+                                                props.priorityList
+                                                    ? props.priorityList.map(priorityProperty => (
+                                                        priorityProperty.priority === props.listTitle
+                                                        ? <>{priorityProperty.name}</>
+                                                        : null
+                                                    ))
+                                                    : null
+                                                }</>,
                                 'status' : <>{props.listTitle}</>,
                                 'user' : <>{props.listTitle}</>
                             }[props.groupValue]
@@ -56,6 +63,7 @@ export default function List(props) {
                             cardCount++;
                             return(<Card cardDetails={ticket} />)
                         }
+                        return null
                     }, cardCount = 0)
                     
                 }

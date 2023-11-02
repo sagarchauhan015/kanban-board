@@ -18,7 +18,7 @@ function App() {
 
   const orderDataByValue = useCallback(async (cardsArry) => {
     if (orderValue === 'priority') {
-      cardsArry.sort((a, b) => a.priority - b.priority);
+      cardsArry.sort((a, b) => b.priority - a.priority);
     } else if (orderValue === 'title') {
       cardsArry.sort((a, b) => {
         const titleA = a.title.toLowerCase();

@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     color: var(--white1);
-    background-color: #b03d0c;
+    background-color: #b06e0c;
     border-radius: 50%;
     font-size: .8rem;
     position: relative;
@@ -45,7 +45,7 @@
     top: 70%;
 }
 .card-profile-initial-available-true{
-    background-color: rgb(139, 223, 12);
+    background-color: rgb(72, 223, 12);
 }
 .card-title{
     font-size: 1rem;
