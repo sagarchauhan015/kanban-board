@@ -3,6 +3,8 @@ import React from 'react'
 import './List.css'
 import Card from '../Card/Card'
 
+let cardCount = 0;
+
 export default function List(props) {
   return (
     <>
@@ -13,23 +15,21 @@ export default function List(props) {
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g transform="translate(24 0) scale(-1 1)"><path fill="#fdc000" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8a8 8 0 0 1-8 8V4Z"/></g></svg>
                     </div>
                     <div className="list-title">
-                        {props.listTitle}
-                        {/* {
+                        {
                             {
                                 'priority' : <>{
-                                    props.priorityList.map(priorityProperty => {
+                                    props.priorityList?.map(priorityProperty => {
                                         if(priorityProperty.priority === props.listTitle){
                                             return(<>{priorityProperty.name}</>)
                                         }
                                     })
                                 }</>,
-                                'other' : <>{
-                                    props.listTitle
-                                }</>
-                            }[props.listValue]
-                        } */}
+                                'status' : <>{props.listTitle}</>,
+                                'user' : <>{props.listTitle}</>
+                            }[props.groupValue]
+                        }
                     </div>
-                    <div className="list-sum">3</div>
+                    <div className="list-sum">{cardCount}</div>
                 </div>
                 <div className="list-header-right">
                     <div className="list-add-item">
@@ -45,21 +45,19 @@ export default function List(props) {
                 {
                     props.ticketDetails.map(ticket => {
                         if(ticket.status === props.listTitle){
+                            cardCount++;
                             return(<Card cardDetails={ticket} />)
                         }
                         else if(ticket.priority === props.listTitle){
+                            cardCount++;
                             return(<Card cardDetails={ticket} />)
                         }
                         else if(ticket.userObj.name === props.listTitle){
+                            cardCount++;
                             return(<Card cardDetails={ticket} />)
                         }
-                    })
-
-                    // cardsArry.map((ticket) => {
-                    //     return(
-                    //         <Card cardDetails={ticket} />
-                    //     )
-                    // })
+                    }, cardCount = 0)
+                    
                 }
             </div>
 

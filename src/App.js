@@ -86,7 +86,7 @@ function App() {
                 {
                   statusList.map((listItem) => {
                     return(<List
-                      groupValue='other'
+                      groupValue='status'
                       orderValue={orderValue}
                       listTitle={listItem}
                       listIcon=''
@@ -100,7 +100,7 @@ function App() {
               {
                 userList.map((listItem) => {
                   return(<List
-                    groupValue='other'
+                    groupValue='user'
                     orderValue={orderValue}
                     listTitle={listItem}
                     listIcon=''
