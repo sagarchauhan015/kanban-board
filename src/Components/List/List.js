@@ -94,7 +94,6 @@ export default function List(props) {
                     
                 }
             </div>
-
         </div>
     </>
   )
